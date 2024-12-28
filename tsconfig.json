@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true, // Required for default imports
+    "module": "commonjs", // or another module system if needed
+    "strict": true
+  }
+}
