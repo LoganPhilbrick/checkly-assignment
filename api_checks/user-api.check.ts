@@ -1,7 +1,7 @@
 import { ApiCheck, AssertionBuilder } from "checkly/constructs";
 import { emailChannel } from "../alert-channel";
 import apiGroup from "../groups/api-group.check";
-import data from "../users.json";
+import data from "./users.json";
 import "dotenv/config";
 
 const { authToken } = process.env;
