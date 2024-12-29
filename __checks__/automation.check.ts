@@ -2,7 +2,7 @@ import { BrowserCheck } from "checkly/constructs";
 import * as path from "path";
 import browserGroup from "../groups/browser-group.check";
 
-new BrowserCheck("pokemon-check", {
+new BrowserCheck("automation-check", {
   name: "Automation Check",
   frequency: 30,
   group: browserGroup,
