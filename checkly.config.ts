@@ -4,7 +4,7 @@ const config = defineConfig({
   projectName: "Checkly Assignment",
   logicalId: "checkly-assignment",
   checks: {
-    frequency: 10,
+    frequency: 5,
     locations: ["us-east-1", "eu-west-1"],
     runtimeId: "2024.02",
     checkMatch: "**/__checks__/**/*.check.ts",
