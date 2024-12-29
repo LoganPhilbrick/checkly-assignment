@@ -1,7 +1,9 @@
 import { CheckGroup } from "checkly/constructs";
+import { emailChannel } from "../alert-channel";
 
 const browserGroup = new CheckGroup("browser-group", {
   name: "Browser Group",
+  alertChannels: [emailChannel],
   activated: true,
   frequency: 5,
   locations: ["us-east-1", "eu-west-1"],
