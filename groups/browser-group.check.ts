@@ -1,11 +1,11 @@
-import { CheckGroup } from "checkly/constructs";
+import { CheckGroup, Frequency } from "checkly/constructs";
 import { emailChannel } from "../alert-channel";
 
 const browserGroup = new CheckGroup("browser-group", {
   name: "Browser Group",
   alertChannels: [emailChannel],
   activated: true,
-  frequency: 5,
+  frequency: Frequency.EVERY_5M,
   locations: ["us-east-1", "eu-west-1"],
   tags: ["browser-group"],
   concurrency: 10,
