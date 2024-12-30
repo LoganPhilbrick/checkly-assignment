@@ -1,4 +1,4 @@
-import { BrowserCheck, Frequency } from "checkly/constructs";
+import { BrowserCheck } from "checkly/constructs";
 import * as path from "path";
 import browserGroup from "../groups/browser-group.check";
 
