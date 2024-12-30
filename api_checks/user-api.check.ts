@@ -19,7 +19,7 @@ for (const user of users) {
       followRedirects: true,
       skipSSL: false,
       headers: [{ key: "Authorization", value: `Bearer ${authToken}` }],
-      assertions: [AssertionBuilder.statusCode().equals(200)],
+      assertions: [AssertionBuilder.statusCode().equals(200), AssertionBuilder.jsonBody("$.id").equals(user.id), AssertionBuilder.jsonBody("$.name").equals(user.name)],
     },
   });
 }
