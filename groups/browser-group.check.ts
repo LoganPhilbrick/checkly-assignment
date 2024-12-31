@@ -9,7 +9,7 @@ const browserGroup = new CheckGroup("browser-group", {
   tags: ["browser-group"],
   concurrency: 10,
   browserChecks: {
-    frequency: Frequency.EVERY_10M,
+    frequency: Frequency.EVERY_30M,
     testMatch: "**/__checks__/**/*.spec.ts",
   },
 });

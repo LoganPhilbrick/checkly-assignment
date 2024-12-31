@@ -3,9 +3,9 @@ import { emailChannel } from "../alert-channel";
 
 const apiGroup = new CheckGroup("api-group", {
   name: "API Group",
-  activated: true,
-  frequency: Frequency.EVERY_5M,
   alertChannels: [emailChannel],
+  activated: true,
+  frequency: Frequency.EVERY_30M,
   locations: ["us-east-1", "eu-west-1"],
   tags: ["api-group"],
   concurrency: 10,

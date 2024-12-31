@@ -1,57 +1,47 @@
-# Checkly Monitoring-as-code: Boilerplate Project
+## Checkly Assignment
 
-This example project shows how you can use the Checkly CLI in a monitoring as code (MaC) workflow. We are using the
-https://checklyhq.com website as a monitoring target.
+This CLI-driven Checkly setup is ready to deploy your existing playwright checks, dynamically created api checks, and any new checks added to the respective folder.
 
-1. Write API Checks and Playwright-powered Browser Checks!
-2. Test -> Deploy: now you have your app monitored around the clock. All from your code base.
+## Installation
 
-```
-npm create checkly -- --template boilerplate-project
-```
+1. Clone the repo:
+
+   ```bash
+   git clone https://github.com/username/repo.git
+
+   ```
+
+2. Install dependencies:
+   `npm install`
+
+3. Login to Checkly:
+   `npx Checkly Login`
 
 ## Project Structure
 
-This project has the basic boilerplate files needed to get you started.
-
-```
-.
-├── README.md
-├── __checks__
-│   ├── api.check.ts
-│   └── homepage.spec.ts
+Project/
+├── **checks**/
+│ ├── automation.check.ts
+│ ├── automation.spec.ts
+│ ├── pokemon.check.ts
+│ ├── pokemon.spec.ts
+├── api_checks/
+│ ├── user-api.check.ts
+│ ├── users.json
+├── groups/
+│ ├── api-group.check.ts
+│ ├── browser-group.check.ts
+├── alert-channel.ts
 ├── checkly.config.ts
-└── package.json
-```
 
-- Running `npx checkly test` will look for `.check.ts` files and `.spec.ts` in `__checks__` directories and execute them in a dry run.
+## Checks Folder
 
-- Running `npx checkly deploy` will deploy your checks to Checkly, attach alert channels, and run them on a 10m schedule in the 
-region `us-east-1` and `eu-west-1`
+The checks folder is where your playwright tests and the corresponding browser checks live. Any new tests added to the `__checks__` folder will be automatically added to the **Browser Group** upon running `npx checkly deploy`. Run `npx checkly test` to confirm your checks are being registered by the corresponding `check.ts` file.
 
-## CLI Commands
+## API-Checks Folder
 
-Run the core CLI commands with `npx checkly <command>` 
+There is one `check.ts` file in the `api_checks` folder. This file contains a dynamic `ApiCheck` that will iterate over the `users.json` file, located in the same folder, and create individual checks for each object in the said file. Running `npx checkly test` will display a check for each object in the `users.json` file in the command line with the browser checks. Once `npx checkly deploy` is run the new checks will be deployed to your checkly dashboard in a group with the name **API Group**
 
-| Command              | Action                                           |
-|:---------------------|:-------------------------------------------------|
-| `npx checkly test`   | Dry run all the checks in your project           |
-| `npx checkly deploy` | Deploy your checks to the Checkly cloud          |
-| `npx checkly login`  | Log in to your Checkly account                   |
-| `npx checkly --help` | Show help for each command.                      |
+## Alert Channel
 
-[Check the docs for the full CLI reference](https://www.checklyhq.com/docs/cli/command-line-reference/).
-
-## Adding and running `@playwright/test`
-
-You can add `@playwright/test` to this project to get full code completion and run `.spec.ts` files for local debugging.
-It's best to install the Playwright npm package version that matches your [Checkly runtime](https://www.checklyhq.com/docs/cli/npm-packages/).
-
-```bash
-npm install --save-dev @playwright/test@1.38.1
-```
-
-## Questions?
-
-Check [our CLI docs](https://www.checklyhq.com/docs/cli/), the [main Checkly docs](https://checklyhq.com/docs) or 
-join our [Slack community](https://checklyhq.com/slack).
+The `alert-channel.ts` file exports an `EmailAlertChannel` that is being imported and passed to the properties of the CheckGroup constructs in the `api-group.check.ts` and `browser-group.check.ts`. This adds the specified email to the **Alert channels** of both groups. Currently set to send an alert for failed checks and an alert for if a failed check is recovered.
