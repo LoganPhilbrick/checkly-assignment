@@ -12,13 +12,20 @@ This CLI-driven Checkly setup is ready to deploy your existing playwright checks
    ```
 
 2. Install dependencies:
-   `npm install`
+   ```bash
+   npm install
 
-3. Login to Checkly:
-   `npx Checkly Login`
+   ```
+
+4. Login to Checkly:
+   ```bash
+   npx Checkly Login
+
+   ```
 
 ## Project Structure
 
+```
 Project/
 ├── **checks**/
 │ ├── automation.check.ts
@@ -33,6 +40,7 @@ Project/
 │ ├── browser-group.check.ts
 ├── alert-channel.ts
 ├── checkly.config.ts
+```
 
 ## Checks Folder
 
