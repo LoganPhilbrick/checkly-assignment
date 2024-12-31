@@ -7,6 +7,6 @@ const sendDefaults = {
 };
 
 export const emailChannel = new EmailAlertChannel("email-channel-1", {
-  address: "loganphilbrick99@gmail.com",
+  address: "raccoon@checklyhq.com",
   ...sendDefaults,
 });
