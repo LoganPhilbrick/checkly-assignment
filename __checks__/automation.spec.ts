@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("test", async ({ page }) => {
   await page.goto("https://www.automationexercise.com/");
-  // could not find a button with the name or containing text "Consent" on website
+  // could not find a button with the name "Consent" on website
   // const consentButton = page.getByRole("button", { name: "Consent" });
   // await consentButton.click();
   await page.getByRole("link", { name: " Products" }).click();

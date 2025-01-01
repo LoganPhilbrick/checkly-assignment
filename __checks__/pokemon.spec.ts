@@ -27,7 +27,7 @@ test("get favorite pokemon and verify type", async ({ request }) => {
     expect(response).toBeOK();
 
     const pokemonForm = await response.json();
-    const pokemonType = pokemonForm.types[0].type.name; // appended "name" to "pokemonForm.types[0].type" since "type" is an object containing mulyiple values
+    const pokemonType = pokemonForm.types[0].type.name; // appended "name" to "pokemonForm.types[0].type" since "type" is an object containing multiple values
     expect(pokemonType).toBe("electric");
   });
 });
