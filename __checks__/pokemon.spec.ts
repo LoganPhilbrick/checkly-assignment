@@ -19,7 +19,7 @@ test("get favorite pokemon and verify type", async ({ request }) => {
     expect(response).toBeOK();
 
     const pokemonForm = await response.json();
-    pokemonFormURL = pokemonForm.forms[0].url;
+    pokemonFormURL = pokemonForm.forms[0].url; // appended index of "0" to "pokemon.forms" since "forms" is an array
   });
 
   await test.step("verify pokemon type", async () => {
@@ -27,7 +27,7 @@ test("get favorite pokemon and verify type", async ({ request }) => {
     expect(response).toBeOK();
 
     const pokemonForm = await response.json();
-    const pokemonType = pokemonForm.types[0].type.name;
+    const pokemonType = pokemonForm.types[0].type.name; // appended "name" to "pokemonForm.types[0].type" since "type" is an object containing mulyiple values
     expect(pokemonType).toBe("electric");
   });
 });

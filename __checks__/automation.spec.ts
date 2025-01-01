@@ -13,7 +13,7 @@ test("test", async ({ page }) => {
   const modalHeading = page.getByRole("heading", { name: "Added!" });
   expect(modalHeading).toBeVisible;
   await page.getByRole("button", { name: "Continue Shopping" }).click(); //changed "link" to "button"
-  await page.getByRole("link", { name: " Cart" }).click();
+  await page.getByRole("link", { name: "Cart" }).click();
   await page.getByText("Proceed To Checkout").click();
   await page.getByRole("link", { name: "Register / Login" }).click(); //changed "Signup" to "Login" to match the text on the modal's button
   const signupHeading = page.getByRole("heading", { name: "New User Signup!" });
